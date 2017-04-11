@@ -36,8 +36,8 @@ public class AllBookablesFragment extends Fragment {
         // Create an ArrayList of ClistItems objects
 
         final ArrayList<List_item> ListItems = new ArrayList<List_item>();
-        ListItems.add(new List_item("YOGA", "8.00"));
-        ListItems.add(new List_item("PILaties", "9.00"));
+        ListItems.add(new List_item("YOGA", 800, 8976));
+        ListItems.add(new List_item("PILaties", 900, 6749));
 
 
         // Create an {@link SimpleListAdapter}, whose data source is a list of
