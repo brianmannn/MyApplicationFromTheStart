@@ -10,4 +10,8 @@ public class AppConfig {
 
     // Server user register url
     public static String URL_REGISTER = "http://lengthier-grooms.000webhostapp.com/Register.php";
+
+    // Server events url
+    public static String URL_EVENTS = "http://lengthier-grooms.000webhostapp.com/get-data.php";
+
 }

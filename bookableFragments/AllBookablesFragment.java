@@ -43,13 +43,13 @@ public class AllBookablesFragment extends Fragment
     private static final String REQUEST_URL = "http://lengthier-grooms.000webhostapp.com/get-data.php";
 
     /**
-     * Constant value for the earthquake loader ID. We can choose any integer.
+     * Constant value for the event loader ID. We can choose any integer.
      * This really only comes into play if you're using multiple loaders.
      */
     private static final int EVENT_LOADER_ID = 1;
 
     /**
-     * Adapter for the list of earthquakes
+     * Adapter for the list of events
      */
     private SimpleListAdapter mAdapter;
 
@@ -66,17 +66,17 @@ public class AllBookablesFragment extends Fragment
 
 
         // Find a reference to the {@link ListView} in the layout
-        ListView earthquakeListView = (ListView) rootView.findViewById(R.id.list);
+        ListView eventsListView = (ListView) rootView.findViewById(R.id.list);
 
         mEmptyStateTextView = (TextView) rootView.findViewById(R.id.empty_view);
-        earthquakeListView.setEmptyView(mEmptyStateTextView);
+        eventsListView.setEmptyView(mEmptyStateTextView);
 
         // Create a new adapter that takes an empty list of events as input
         mAdapter = new SimpleListAdapter(getActivity(), new ArrayList<List_item>());
 
         // Set the adapter on the {@link ListView}
         // so the list can be populated in the user interface
-        earthquakeListView.setAdapter(mAdapter);
+        eventsListView.setAdapter(mAdapter);
 
 
         // Get a reference to the ConnectivityManager to check state of network connectivity
@@ -140,59 +140,3 @@ public class AllBookablesFragment extends Fragment
 }
 
 
-
-/*
-{
-
-
-    public AllBookablesFragment() {
-        // Required empty public constructor
-    }
-
-
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-
-        View rootView = inflater.inflate(R.layout.fragment_bookables, container, false);
-        // Create an ArrayList of ClistItems objects
-
-        final ArrayList<List_item> ListItems = new ArrayList<List_item>();
-        ListItems.add(new List_item("YOGA", 800, 8976));
-        ListItems.add(new List_item("PILaties", 900, 6749));
-
-
-        // Create an {@link SimpleListAdapter}, whose data source is a list of
-        // {@link List_item}s. The adapter knows how to create list item views for each item
-        // in the list.
-        SimpleListAdapter ItemsAdapter = new SimpleListAdapter(getActivity(), ListItems);
-
-        // Get a reference to the ListView, and attach the adapter to the listView.
-        ListView listView = (ListView) rootView.findViewById(R.id.list);
-        listView.setAdapter(ItemsAdapter);
-
-/*
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> adapterView, View view, int position, long id) {
-                List_item item = ListItems.get(position);
-
-                Intent newIntent = new Intent(getActivity(), item.getActivityToName());
-                startActivity(newIntent);
-
-
-
-            }
-        });
-*/
-/*
-        return rootView;
-
-
-
-
-    }
-
-}
-*/

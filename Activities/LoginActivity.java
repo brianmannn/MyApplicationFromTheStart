@@ -121,6 +121,7 @@ public class LoginActivity extends Activity {
                 hideDialog();
 
                 try {
+                    //turn the string from the server into a JSONObject
                     JSONObject jObj = new JSONObject(response);
                     boolean error = jObj.getBoolean("error");
 
@@ -131,6 +132,7 @@ public class LoginActivity extends Activity {
                         session.setLogin(true);
 
                         // Now store the user in SQLite
+                        //parse the data as your passing it
                         String uid = jObj.getString("uid");
 
                         JSONObject user = jObj.getJSONObject("user");
@@ -158,7 +160,6 @@ public class LoginActivity extends Activity {
                     e.printStackTrace();
                     Toast.makeText(getApplicationContext(), "Json error: " + e.getMessage(), Toast.LENGTH_LONG).show();
                 }
-
             }
         }, new Response.ErrorListener() {
 
@@ -186,6 +187,8 @@ public class LoginActivity extends Activity {
         // Adding request to request queue
         AppController.getInstance().addToRequestQueue(strReq, tag_string_req);
     }
+
+    //end of check login
 
     private void showDialog() {
         if (!pDialog.isShowing())

@@ -138,14 +138,14 @@ public final class QueryUtils {
      * Return a list of {@link List_item} objects that has been built up from
      * parsing the given JSON response.
      */
-    private static List<List_item> extractFeatureFromJson(String earthquakeJSON) {
+    public static List<List_item> extractFeatureFromJson(String eventJSON) {
         // If the JSON string is empty or null, then return early.
-        if (TextUtils.isEmpty(earthquakeJSON)) {
+        if (TextUtils.isEmpty(eventJSON)) {
             return null;
         }
 
-        // Create an empty ArrayList that we can start adding earthquakes to
-        List<List_item> earthquakes = new ArrayList<>();
+        // Create an empty ArrayList that we can start adding events to
+        List<List_item> events = new ArrayList<>();
 
         // Try to parse the JSON response string. If there's a problem with the way the JSON
         // is formatted, a JSONException exception object will be thrown.
@@ -153,41 +153,34 @@ public final class QueryUtils {
         try {
 
             // Create a JSONObject from the JSON response string
-            JSONObject baseJsonResponse = new JSONObject(earthquakeJSON);
+            JSONObject baseJsonResponse = new JSONObject(eventJSON);
 
             // Extract the JSONArray associated with the key called "features",
-            // which represents a list of features (or earthquakes).
+            // which represents a list of features (or events).
             JSONArray eventsarray = baseJsonResponse.getJSONArray("result");
 
-            // For each earthquake in the eventsarray, create an {@link Earthquake} object
+            // For each earthquake in the eventsarray, create an {@link Event} object
             for (int i = 0; i < eventsarray.length(); i++) {
 
-                // Get a single events at position i within the list of earthquakes
+                // Get a single event at position i within the list of events
                 JSONObject currentEvent = eventsarray.getJSONObject(i);
 
 
-                // For a given events, extract the JSONObject associated with the
-                // key called "properties", which represents a list of all properties
-                // for that events.
-                //JSONObject properties = currentEvent.getJSONObject("name");
-
-
-
-                // Extract the value for the key called "place"
+                // Extract the value for the key called "name"
                 String name = currentEvent.getString("name");
 
                 // Extract the value for the key called "time"
                 int time = currentEvent.getInt("time");
 
-                // Extract the value for the key called "url"
+                // Extract the value for the key called "date"
                 int date = currentEvent.getInt("date");
 
-                // Create a new {@link Earthquake} object with the magnitude, location, time,
-                // and url from the JSON response.
-                List_item events = new List_item(name, time, date);
+                // Create a new {@link List_item} object with the name, dste, time,
+                // from the JSON response.
+                List_item event = new List_item(name, time, date);
 
-                // Add the new {@link Earthquake} to the list of earthquakes.
-                earthquakes.add(events);
+                // Add the new {@link Earthquake} to the list of events.
+                events.add(event);
             }
 
         } catch (JSONException e) {
@@ -197,8 +190,8 @@ public final class QueryUtils {
             Log.e("QueryUtils", "Problem parsing the earthquake JSON results", e);
         }
 
-        // Return the list of earthquakes
-        return earthquakes;
+        // Return the list of events
+        return events;
     }
 
 }
