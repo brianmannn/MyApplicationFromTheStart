@@ -1,5 +1,7 @@
 package com.crazyhands.myapplicationfromthestart.Items;
 
+import android.util.Log;
+
 /**
  * Created by crazyhands on 10/04/2017.
  */
@@ -17,8 +19,12 @@ public class List_item {
         return mCname;
     }
 
-    public int getCtime () {return mCtime;}
+    public String getCtime () {
+        Log.v("simplelistadapter", "in get time"+ mCtime);
 
-    public int getdate() {return mdate;}
+        return String.valueOf(mCtime);}
+
+    public String getdate() {
+        return String.valueOf(mdate);}
 
 }

@@ -1,6 +1,7 @@
 package com.crazyhands.myapplicationfromthestart.Adapters;
 
 import android.app.Activity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -66,15 +67,21 @@ public class SimpleListAdapter extends ArrayAdapter<List_item> {
         nameTextView.setText(currentListItem.getCname());
 
 
-        // Find the TextView in the list_item.xml layout with the ID version_name
+        // Find the TextView in the list_item.xml layout with the ID time
         TextView timeTextView = (TextView) listItemView.findViewById(R.id.timeOfItem);
 
         // Get the C time from the current List_item object and
         // set this text on the time TextView
         timeTextView.setText(currentListItem.getCtime());
 
+        // Find the TextView in the list_item.xml layout with the ID dateOfItem
+        TextView dateTextView = (TextView) listItemView.findViewById(R.id.dateOfItem);
 
-        // Return the whole list item layout (containing 2 TextViews and an ImageView)
+        // Get the date from the current List_item object and
+        // set this text on the time TextView
+        dateTextView.setText(currentListItem.getdate());
+
+        // Return the whole list item layout (containing 3 TextViews )
         // so that it can be shown in the ListView
         return listItemView;
     }

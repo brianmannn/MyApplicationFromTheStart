@@ -157,36 +157,37 @@ public final class QueryUtils {
 
             // Extract the JSONArray associated with the key called "features",
             // which represents a list of features (or earthquakes).
-            JSONArray earthquakeArray = baseJsonResponse.getJSONArray("result");
+            JSONArray eventsarray = baseJsonResponse.getJSONArray("result");
 
-            // For each earthquake in the earthquakeArray, create an {@link Earthquake} object
-            for (int i = 0; i < earthquakeArray.length(); i++) {
+            // For each earthquake in the eventsarray, create an {@link Earthquake} object
+            for (int i = 0; i < eventsarray.length(); i++) {
 
-                // Get a single earthquake at position i within the list of earthquakes
-                JSONObject currentEarthquake = earthquakeArray.getJSONObject(i);
+                // Get a single events at position i within the list of earthquakes
+                JSONObject currentEvent = eventsarray.getJSONObject(i);
 
-                // For a given earthquake, extract the JSONObject associated with the
+
+                // For a given events, extract the JSONObject associated with the
                 // key called "properties", which represents a list of all properties
-                // for that earthquake.
-                JSONObject properties = currentEarthquake.getJSONObject("properties");
+                // for that events.
+                //JSONObject properties = currentEvent.getJSONObject("name");
 
 
 
                 // Extract the value for the key called "place"
-                String name = properties.getString("name");
+                String name = currentEvent.getString("name");
 
                 // Extract the value for the key called "time"
-                int time = properties.getInt("time");
+                int time = currentEvent.getInt("time");
 
                 // Extract the value for the key called "url"
-                int date = properties.getInt("date");
+                int date = currentEvent.getInt("date");
 
                 // Create a new {@link Earthquake} object with the magnitude, location, time,
                 // and url from the JSON response.
-                List_item earthquake = new List_item(name, time, date);
+                List_item events = new List_item(name, time, date);
 
                 // Add the new {@link Earthquake} to the list of earthquakes.
-                earthquakes.add(earthquake);
+                earthquakes.add(events);
             }
 
         } catch (JSONException e) {
