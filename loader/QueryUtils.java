@@ -53,10 +53,10 @@ public final class QueryUtils {
         }
 
         // Extract relevant fields from the JSON response and create a list of {@link Earthquake}s
-        List<List_item> earthquakes = extractFeatureFromJson(jsonResponse);
+        List<List_item> eventss = extractFeatureFromJson(jsonResponse);
 
         // Return the list of {@link Earthquake}s
-        return earthquakes;
+        return eventss;
     }
 
     /**
