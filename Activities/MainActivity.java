@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                     //The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
-                 Intent toMytest = new Intent(MainActivity.this, Bookables.class);
+                 Intent toMytest = new Intent(MainActivity.this, VolleyTestActivity.class);
                  startActivity(toMytest);
             }
         });
