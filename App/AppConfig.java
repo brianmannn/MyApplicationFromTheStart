@@ -1,8 +1,5 @@
 package com.crazyhands.myapplicationfromthestart.App;
 
-/**
- * Created by crazyhands on 11/04/2017.
- */
 
 public class AppConfig {
     // Server user login url
@@ -14,4 +11,6 @@ public class AppConfig {
     // Server events url
     public static String URL_EVENTS = "http://lengthier-grooms.000webhostapp.com/get-data.php";
 
+    // Server events url with where clause
+    public static String URL_EVENTS_WHERE = "http://lengthier-grooms.000webhostapp.com/get-data-where.php?id=";
 }

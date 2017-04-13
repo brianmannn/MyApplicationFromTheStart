@@ -7,9 +7,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.Volley;
 
-/**
- * Created by crazyhands on 11/04/2017.
- */
+
 
 public class AppController extends Application {
 

@@ -30,7 +30,9 @@ public class MainActivity extends AppCompatActivity {
             //The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
-                //add intents
+                Intent toMytest = new Intent(MainActivity.this, EventDetailActivity.class);
+                toMytest.putExtra("id", "1");
+                startActivity(toMytest);
             }
         });
 
@@ -39,8 +41,7 @@ public class MainActivity extends AppCompatActivity {
             //The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
-                Intent toMytest = new Intent(MainActivity.this, NewAllBookablesFragment.class);
-                startActivity(toMytest);
+
             }
         });
     }
