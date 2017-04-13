@@ -22,8 +22,7 @@ public class AppController extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        mInstance = this;
-    }
+        mInstance = this;}
 
     public static synchronized AppController getInstance() {
         return mInstance;

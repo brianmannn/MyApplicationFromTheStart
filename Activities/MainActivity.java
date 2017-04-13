@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 
 import com.crazyhands.myapplicationfromthestart.R;
+import com.crazyhands.myapplicationfromthestart.bookableFragments.NewAllBookablesFragment;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -26,11 +27,20 @@ public class MainActivity extends AppCompatActivity {
         });
         Button totest = (Button) findViewById(R.id.testButton);
         totest.setOnClickListener(new View.OnClickListener() {
-                    //The code in this method will be executed when the numbers View is clicked on.
+            //The code in this method will be executed when the numbers View is clicked on.
             @Override
             public void onClick(View view) {
-                 Intent toMytest = new Intent(MainActivity.this, VolleyTestActivity.class);
-                 startActivity(toMytest);
+                //add intents
+            }
+        });
+
+        Button tonewfragment = (Button) findViewById(R.id.ManageClassesButton);
+        tonewfragment.setOnClickListener(new View.OnClickListener() {
+            //The code in this method will be executed when the numbers View is clicked on.
+            @Override
+            public void onClick(View view) {
+                Intent toMytest = new Intent(MainActivity.this, NewAllBookablesFragment.class);
+                startActivity(toMytest);
             }
         });
     }
